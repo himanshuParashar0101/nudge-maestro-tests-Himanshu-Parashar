@@ -1,14 +1,35 @@
 appId: com.nudgenow.testapp
-
 ---
-# Main flow to run all tests
-- runFlow: 
-    file: new_user_flow.yaml
+# Comprehensive Test Suite for Nudge App
+# Author: Himanshu Parashar
+# Last Updated: 2024-07-23
+
+# Environment Setup
 - runFlow:
-    file: existing_user_flow.yaml
+    file: setup/environment_check.yaml
+
+# User Management Flows
 - runFlow:
-    file: story_flow.yaml
+    file: user_flows/new_user_flow.yaml
 - runFlow:
-    file: quiz_flow.yaml
+    file: user_flows/existing_user_flow.yaml
 - runFlow:
-    file: user_deletion_flow.yaml
+    file: user_flows/user_deletion_flow.yaml
+
+# Feature Testing
+- runFlow:
+    file: features/story_flow.yaml
+- runFlow:
+    file: features/quiz_flow.yaml
+
+# Performance and Edge Cases
+- runFlow:
+    file: performance/load_test.yaml
+- runFlow:
+    file: edge_cases/network_interruption.yaml
+
+# Cleanup and Reporting
+- runFlow:
+    file: utils/test_data_cleanup.yaml
+- runFlow:
+    file: utils/generate_report.yaml
