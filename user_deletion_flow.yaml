@@ -1,0 +1,20 @@
+appId: com.nudgenow.testapp
+
+---
+# Test case for user deletion
+- launchApp
+- tapOn: "User Identifier"
+- inputText: "deleteuser@test.com"
+- tapOn: "Login"
+- assertVisible: "Login successful"
+
+- tapOn: "Delete User"
+- assertVisible: "Are you sure?"
+- tapOn: "Yes, delete my account"
+- assertVisible: "User deleted successfully"
+
+# Verify deleted user can't log in
+- tapOn: "User Identifier"
+- inputText: "deleteuser@test.com"
+- tapOn: "Login"
+- assertVisible: "User not found"
