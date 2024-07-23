@@ -1,0 +1,21 @@
+appId: com.nudgenow.testapp
+
+---
+# Test case for story tracking
+- launchApp
+- tapOn: "User Identifier"
+- inputText: "storyuser@test.com"
+- tapOn: "Login"
+- assertVisible: "Login successful"
+
+- tapOn: "Track story"
+- assertVisible: "Story tracked successfully"
+- scrollUntilVisible:
+    element: "Story content"
+- assertVisible: "Story content"
+
+# Interact with story elements (adjust based on actual app behavior)
+- swipeLeft
+- assertVisible: "Next story page"
+- tapOn: "Like button"
+- assertVisible: "Liked"
