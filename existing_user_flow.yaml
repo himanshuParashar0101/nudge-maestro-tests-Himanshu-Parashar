@@ -1,0 +1,16 @@
+appId: com.nudgenow.testapp
+
+---
+# Test case for existing user login
+- launchApp
+- tapOn: "User Identifier"
+- inputText: "existinguser@test.com"
+- tapOn: "Login"
+- assertVisible: "Login successful"
+
+# Verify existing user can access features
+- tapOn: "Track story"
+- assertVisible: "Story tracked"
+- back
+- tapOn: "Track Quiz"
+- assertVisible: "Quiz started"
