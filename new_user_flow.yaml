@@ -1,0 +1,16 @@
+appId: com.nudgenow.testapp
+
+---
+# Test case for new user registration
+- launchApp
+- tapOn: "User Identifier"
+- inputText: "newuser@test.com"
+- tapOn: "Create User"
+- assertVisible: "User created successfully"
+
+# Verify new user can access features
+- tapOn: "Track story"
+- assertVisible: "Story tracked"
+- back
+- tapOn: "Track Quiz"
+- assertVisible: "Quiz started"
