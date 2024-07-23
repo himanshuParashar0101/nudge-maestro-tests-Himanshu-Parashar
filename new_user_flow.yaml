@@ -1,16 +1,73 @@
 appId: com.nudgenow.testapp
-
 ---
-# Test case for new user registration
-- launchApp
-- tapOn: "User Identifier"
-- inputText: "newuser@test.com"
-- tapOn: "Create User"
-- assertVisible: "User created successfully"
+# New User Registration and Onboarding Flow
+# This test ensures a smooth signup process and initial app experience for new users.
 
-# Verify new user can access features
+# Step 1: App Launch and Initial Check
+- launchApp
+- assertVisible: "Welcome to Nudge"
+- tapOn: "Get Started"
+
+# Step 2: User Registration
+- tapOn: "Create Account"
+- assertVisible: "Sign Up"
+- inputText:
+    id: "email_field"
+    text: ${RANDOM_EMAIL}
+- inputText:
+    id: "password_field"
+    text: "SecurePass123!"
+- inputText:
+    id: "confirm_password_field"
+    text: "SecurePass123!"
+- tapOn: "Terms and Conditions"
+- scroll
+- tapOn: "I Agree"
+- tapOn: "Create Account"
+
+# Step 3: Email Verification (Simulated)
+- assertVisible: "Verify Your Email"
+- tapOn: "Enter Verification Code"
+- inputText:
+    id: "verification_code"
+    text: "123456"  # Simulated code
+- tapOn: "Verify"
+
+# Step 4: Profile Setup
+- assertVisible: "Set Up Your Profile"
+- inputText:
+    id: "full_name"
+    text: "Test User"
+- tapOn: "Avatar"
+- tapOn: "Choose from Gallery"
+- tapOn: "Sample Avatar"
+- tapOn: "Save Profile"
+
+# Step 5: Feature Introduction
+- assertVisible: "Welcome to Nudge!"
+- swipeLeft  # Simulating tutorial swipe
+- assertVisible: "Track Your Stories"
+- swipeLeft
+- assertVisible: "Take Quizzes"
+- tapOn: "Get Started"
+
+# Step 6: Home Screen Check
+- assertVisible: "Home"
+- assertVisible: "Track story"
+- assertVisible: "Track Quiz"
+
+# Step 7: Initial Feature Access Verification
 - tapOn: "Track story"
-- assertVisible: "Story tracked"
+- assertVisible: "Create Your First Story"
 - back
 - tapOn: "Track Quiz"
-- assertVisible: "Quiz started"
+- assertVisible: "Start Your First Quiz"
+
+# Step 8: Logout to complete the flow
+- tapOn: "Menu"
+- scroll
+- tapOn: "Logout"
+- assertVisible: "Welcome to Nudge"
+
+# Test Completion Message
+- evalScript: "console.log('New User Flow Test Completed Successfully')"
