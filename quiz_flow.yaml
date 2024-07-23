@@ -1,0 +1,23 @@
+appId: com.nudgenow.testapp
+
+---
+# Test case for quiz flow
+- launchApp
+- tapOn: "User Identifier"
+- inputText: "quizuser@test.com"
+- tapOn: "Login"
+- assertVisible: "Login successful"
+
+- tapOn: "Track Quiz"
+- assertVisible: "Quiz started"
+
+# Simulate answering 5 quiz questions
+- repeat:
+    times: 5
+    commands:
+      - assertVisible: "Question"
+      - tapOn: "Answer option"
+      - tapOn: "Next"
+
+- assertVisible: "Quiz completed"
+- assertVisible: "Score"
