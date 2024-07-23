@@ -99,4 +99,3 @@ This test suite is designed to integrate seamlessly with CI/CD pipelines. Refer 
 ---
 
 This test suite represents hours of meticulous planning, coding, and validation to ensure the highest quality standards for the Nudge app. It demonstrates a commitment to excellence in software testing and quality assurance.
-(https://github.com/himanshuParashar0101/nudge-maestro-tests-Himanshu-Parashar/blob/main/Screenshot%202024-07-23%20220516.jpg)
