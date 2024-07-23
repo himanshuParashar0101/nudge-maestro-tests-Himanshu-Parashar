@@ -1,0 +1,14 @@
+appId: com.nudgenow.testapp
+
+---
+# Main flow to run all tests
+- runFlow: 
+    file: new_user_flow.yaml
+- runFlow:
+    file: existing_user_flow.yaml
+- runFlow:
+    file: story_flow.yaml
+- runFlow:
+    file: quiz_flow.yaml
+- runFlow:
+    file: user_deletion_flow.yaml
